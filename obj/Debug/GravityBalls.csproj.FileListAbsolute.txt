@@ -1,0 +1,8 @@
+C:\Users\Weduza\Desktop\c# course\gravityBalls\bin\Debug\GravityBalls.exe.config
+C:\Users\Weduza\Desktop\c# course\gravityBalls\bin\Debug\GravityBalls.exe
+C:\Users\Weduza\Desktop\c# course\gravityBalls\bin\Debug\GravityBalls.pdb
+C:\Users\Weduza\Desktop\c# course\gravityBalls\obj\Debug\GravityBalls.csproj.AssemblyReference.cache
+C:\Users\Weduza\Desktop\c# course\gravityBalls\obj\Debug\GravityBalls.csproj.SuggestedBindingRedirects.cache
+C:\Users\Weduza\Desktop\c# course\gravityBalls\obj\Debug\GravityBalls.csproj.CoreCompileInputs.cache
+C:\Users\Weduza\Desktop\c# course\gravityBalls\obj\Debug\GravityBalls.exe
+C:\Users\Weduza\Desktop\c# course\gravityBalls\obj\Debug\GravityBalls.pdb
