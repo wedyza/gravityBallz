@@ -18,46 +18,52 @@ namespace GravityBalls
 			double distY = velY * dt, distX = velX * dt;
 
 			const double GravitationForce = 10;
+			const double ResistanceCoefficient = 0.005;
 
 			double posX = Cursor.Position.X;
 			double posY = Cursor.Position.Y;
 
-			double resistY = velY * 0.005;
-			double resistX = velX * 0.005;
+			DoResist(ResistanceCoefficient);
 
-			velY -= resistY;
-			velX -= resistX;
 			velY += GravitationForce;
 
-			velX = MoveOnXAxis(velX, distX);
-			velY = MoveOnYAxis(velY, distY);
+			BallX = MoveOnAxis(BallX, velX, distX, WorldWidth);
+			BallY = MoveOnAxis(BallY, velY, distY, WorldHeight);
 
 			MoveByCursor(posX, posY);
 			 
 		}
-
-		public double MoveOnXAxis(double velX, double distX)
+		public double MoveOnAxis(double ball, double vel, double dist, double world)
         {
-			if (velX > 0) BallX = Math.Min(BallX + distX, WorldWidth - BallRadius);
+			/*if (velX > 0) BallX = Math.Min(BallX + distX, WorldWidth - BallRadius);
 			else BallX = Math.Max(BallX + distX, BallRadius);
 
 			if (BallX + BallRadius == WorldWidth) velX *= -1;
 			else if (BallX - BallRadius == 0) velX *= -1;
 
 			return velX;
+			*/
+			if (vel > 0) ball = Math.Min(ball + dist, world - BallRadius);
+			else ball = Math.Max(ball + dist, BallRadius);
+
+			if (ball + BallRadius == world) vel *= -1;
+			else if (ball - BallRadius == 0) vel *= -1;
+
+			if (world == WorldWidth) velX = vel;
+			else velY = vel;
+
+			return ball;
 		}
 
-		public double MoveOnYAxis(double velY, double distY)
+		public void DoResist(int resistance)
         {
-			if (velY > 0) BallY = Math.Min(BallY + distY, WorldHeight - 1 - BallRadius);
-			else BallY = Math.Max(BallY + distY, BallRadius);
+			double resistY = velY * resistance;
+			double resistX = velX * resistance;
 
-			if (BallY + BallRadius == WorldHeight - 1) velY *= -1;
-			else if (BallY - BallRadius == 0) velY *= -1;
-
-			return velY;
+			velY -= resistY;
+			velX -= resistX;
 		}
-		
+
 		public void MoveByCursor(double posX, double posY)
         {
 			const double CursorPower = 400;
