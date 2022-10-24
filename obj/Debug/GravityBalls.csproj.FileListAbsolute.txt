@@ -6,3 +6,5 @@ C:\Users\Weduza\Desktop\c# course\gravityBalls\obj\Debug\GravityBalls.csproj.Sug
 C:\Users\Weduza\Desktop\c# course\gravityBalls\obj\Debug\GravityBalls.csproj.CoreCompileInputs.cache
 C:\Users\Weduza\Desktop\c# course\gravityBalls\obj\Debug\GravityBalls.exe
 C:\Users\Weduza\Desktop\c# course\gravityBalls\obj\Debug\GravityBalls.pdb
+C:\Users\Weduza\Desktop\c# course\gravityBalls\obj\Debug\GravityBalls.BallsForm.resources
+C:\Users\Weduza\Desktop\c# course\gravityBalls\obj\Debug\GravityBalls.csproj.GenerateResource.cache

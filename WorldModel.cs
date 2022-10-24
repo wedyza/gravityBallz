@@ -12,6 +12,8 @@ namespace GravityBalls
 		public double velY = 200;
 	    public double velX = 200;
 		public MouseButtons button;
+		public bool Ball;
+		public string Text;
 
 		public void SimulateTimeframe(double dt)
 		{
@@ -31,7 +33,7 @@ namespace GravityBalls
 			BallY = MoveOnAxis(BallY, velY, distY, WorldHeight);
 
 			MoveByCursor(posX, posY);
-			 
+
 		}
 		public double MoveOnAxis(double ball, double vel, double dist, double world)
         {
@@ -55,7 +57,7 @@ namespace GravityBalls
 			return ball;
 		}
 
-		public void DoResist(int resistance)
+		public void DoResist(double resistance)
         {
 			double resistY = velY * resistance;
 			double resistX = velX * resistance;
@@ -71,31 +73,17 @@ namespace GravityBalls
 			double distX = posX - BallX;
 			double distY = posY - BallY;
 			double dist = Math.Sqrt(distX * distX + distY * distY);
-			double sinAngle = distY / dist;
-			double cosAngle = distX / dist;
+			double sinAngle = Math.Abs(distY / dist);
+			double cosAngle = Math.Abs(distX / dist);
 			dist = CursorPower / dist;
 
 			double newDistX = dist * cosAngle;
 			double newDistY = dist * sinAngle;
 
-			velY -= newDistY;
-			velX -= newDistX;
-        }
 
-		public void BallIsTeleporting(double posX, double posY)
-        {
-			BallX = posX;
-			BallY = posY;
-			velY = 0;
-			velX = 0;
-			return;
-        }
 
-		public bool ButtonClick(MouseEventArgs e)
-        {
-			button = e.Button;
-			if (button == MouseButtons.Left) return true;
-			return false;
+			velY += newDistY > 0 ? newDistY : -newDistY;
+			velX += newDistX > 0 ? newDistX : -newDistX;
         }
 	}
 }
